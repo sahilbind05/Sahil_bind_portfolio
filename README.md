@@ -4,7 +4,6 @@ A modern, recruiter-focused portfolio for a Software Developer working with Reac
 
 ### ▶ Live: [sahilbind-seven.vercel.app](https://sahilbind-seven.vercel.app/)
 
-![Portfolio preview](public/preview.png)
 
 
 ## Features
