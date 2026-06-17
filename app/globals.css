@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep navy-black base with emerald primary + cyan secondary accents. */
+    --background: 229 84% 5%; /* #020617 */
+    --foreground: 210 40% 98%; /* #F8FAFC */
+
+    --card: 222 47% 11%; /* #0F172A */
+    --card-foreground: 210 40% 98%;
+
+    --muted: 222 33% 15%;
+    --muted-foreground: 215 20% 65%; /* #94A3B8 */
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 189 94% 43%; /* cyan focus ring */
+
+    /* Emerald primary. */
+    --primary: 142 71% 45%; /* #22C55E */
+    --primary-foreground: 229 84% 5%;
+
+    /* Cyan secondary / interactive accent. */
+    --accent: 189 94% 43%; /* #06B6D4 */
+    --accent-foreground: 229 84% 5%;
+
+    --secondary: 222 40% 13%;
+    --secondary-foreground: 210 40% 98%;
+
+    --radius: 0.85rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Guard against any element causing horizontal scroll on small screens. */
+    overflow-x: hidden;
+  }
+
+  /* Respect users who prefer reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.3);
+  }
+}
+
+@layer components {
+  /* Reusable gradient text for headings/accents. */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+
+  /* Soft frosted card surface used across sections. */
+  .glass-card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm;
+  }
+
+  /* Animated gradient ring on hover for premium cards. */
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      120deg,
+      hsl(var(--primary) / 0.6),
+      hsl(var(--accent) / 0.6)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 md:py-28;
+  }
+}
+
+@layer utilities {
+  /* Subtle dotted grid backdrop. */
+  .bg-grid {
+    background-image: radial-gradient(
+      hsl(var(--border) / 0.6) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar to match the dark theme. */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
