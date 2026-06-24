@@ -161,8 +161,8 @@ export const achievementStats: Achievement[] = [
   },
   {
     label: "Certifications",
-    value: 3,
-    description: "Generative AI, MongoDB, and Java certifications earned.",
+    value: 6,
+    description: "Morden AI,Generative AI, MongoDB, and Java certifications earned.",
     icon: "Award",
   },
 ];
@@ -194,9 +194,29 @@ export interface Certification {
   title: string;
   issuer: string;
   year: string;
+  /** Public verification link — when set, the card becomes clickable. */
+  url?: string;
 }
 
 export const certifications: Certification[] = [
+   {
+    title: "AI Fundamentals with IBM SkillsBuild",
+    issuer: "Cisco",
+    year: "2026",
+     url : "https://www.credly.com/badges/218b44ba-7e04-4c91-b0b9-098d495885e6/linked_in_profile",
+   },
+  {
+    title: "5-Day AI Agents: Intensive Vibe Coding Course",
+    issuer: "Google for Developers",
+    year: "2026",
+    url :"https://developers.google.com/profile/badges/events/cloud/five-day-ai-agents",
+  },
+  {
+    title: "Introduction to Modern AI",
+    issuer: "Cisco",
+    year: "2026",
+    url : "https://www.credly.com/badges/7fdf1c81-798a-42e7-9f20-f301b26a9faa/linked_in_profile",
+  },
   {
     title: "Generative AI Mastermind",
     issuer: "Outskill",
@@ -206,11 +226,13 @@ export const certifications: Certification[] = [
     title: "MongoDB Overview: Core Concepts and Architecture",
     issuer: "MongoDB",
     year: "2026",
+    url : "https://www.credly.com/badges/79c9173b-d8ad-464f-9d0b-53f96200e93e/linked_in_profile",
   },
   {
     title: "Complete Java",
     issuer: "KnowledgeGate",
     year: "2025",
+    url : "https://www.knowledgegate.ai/certificate/A9D85BB3",
   },
 ];
 
