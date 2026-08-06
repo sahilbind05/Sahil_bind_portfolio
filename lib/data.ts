@@ -129,6 +129,21 @@ export const projects: Project[] = [
     liveUrl: "https://sahilbind05.github.io/AttendIQ/",
     githubUrl: "https://github.com/sahilbind05/attendiq",
   },
+  {
+    title: "Coding Ninjas Clone",
+    description:
+      "A polished front-end clone of the Coding Ninjas learning platform featuring a modern UI, course highlights, and responsive sections inspired by the original experience.",
+    features: [
+      "Modern Landing Page",
+      "Responsive Design",
+      "Course Showcase",
+      "Interactive UI Elements",
+    ],
+    tech: ["React.js", "Tailwind CSS", "Firebase Hosting"],
+    image: "/projects/coding-ninjas-clone.svg",
+    liveUrl: "https://coding-ninjas-clone-27184.web.app/",
+    githubUrl: "https://github.com/sahilbind05/CodingNinjaClone",
+  },
 ];
 
 export interface Achievement {
@@ -142,7 +157,7 @@ export interface Achievement {
 export const achievementStats: Achievement[] = [
   {
     label: "Projects Deployed",
-    value: 2,
+    value: 3,
     description: "Real-world web apps built and shipped end to end.",
     icon: "Rocket",
   },
@@ -186,7 +201,33 @@ export const education: EducationItem[] = [
     institution: "Noida International University",
     degree: "B.Tech — Computer Science and Engineering",
     period: "2023 – 2027",
-    detail: "CGPA: 8.12",
+    detail: "CGPA: 8.19",
+  },
+];
+
+export interface ExperienceItem {
+  role: string;
+  company: string;
+  period: string;
+  location?: string;
+  description: string;
+  highlights: string[];
+}
+
+export const experience: ExperienceItem[] = [
+  {
+    role: "Frontend Developer Intern",
+    company: "QSkills",
+    period: "June 2026 – July 2026",
+    description:
+      "Worked on frontend development tasks and gained practical experience in building responsive React applications.",
+    highlights: [
+      "Developed responsive React applications",
+      "Built reusable components",
+      "Worked with Git & GitHub",
+      "Improved UI responsiveness",
+      "Learned real-world frontend workflows",
+    ],
   },
 ];
 
